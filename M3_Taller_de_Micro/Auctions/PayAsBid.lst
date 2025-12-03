@@ -1,0 +1,209 @@
+GAMS 51.2.1  5fb43f63 Oct 13, 2025          DEX-DEG x86 64bit/macOS - 11/27/25 17:24:30 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Sets
+   2      g       Generators      / PlantA, PlantB /
+   3      s       Scenarios       / Scen1, Scen2 /;
+   4   
+   5  Parameters
+   6      Bid(g)       Bid Price ($ per MWh)
+   7      Cap(g)       Capacity (MW)
+   8      Demand       Total Demand (MW) / 100 /;
+   9   
+  10  * Define Prices
+  11  Bid('PlantA') = 20;
+  12  Bid('PlantB') = 80;
+  13   
+  14  * Define Variables
+  15  Positive Variable x(g);
+  16  Variable z;
+  17  Equation
+  18  * Define Equations
+  19      CostObj      Objective
+  20      BalEq        Supply Demand Balance
+  21      CapLim(g)    Capacity Limit;
+  22   
+  23  CostObj..    z =e= sum(g, Bid(g) * x(g));
+  24  BalEq..      sum(g, x(g)) =e= Demand;
+  25  CapLim(g)..  x(g) =l= Cap(g);
+  26   
+  27  Model Auction /all/;
+  28   
+  29  * Reporting Parameter
+  30  Parameter Report(s, *);
+  31   
+  32  * --- SCENARIO 1: Plant A restricted to 50MW ---
+  33  Cap('PlantA') = 50;
+  34  Cap('PlantB') = 100;
+  35   
+  36  Solve Auction using lp minimizing z
+  37   
+  38  *Report('Scen1', 'Gen_A') = x.l('PlantA');
+  39  *Report('Scen1', 'Gen_B') = x.l('PlantB');
+  40  *Report('Scen1', 'ClearingPrice') = BalEq.m
+  41   
+  42  * --- SCENARIO 2: Plant A full 100MW ---
+  43  * Note: To strictly ensure the price drops to 20 in LP,
+  44  * we assume A has margin or is the marginal unit.
+  45  *Cap('PlantA') = 100;
+  46  *Cap('PlantB') = 100;
+  47   
+  48  *Solve Auction using lp minimizing z;
+  49   
+  50  *Report('Scen2', 'Gen_A') = x.l('PlantA');
+  51  *Report('Scen2', 'Gen_B') = x.l('PlantB');
+  52  *Report('Scen2', 'ClearingPrice') = BalEq.m;
+  53   
+  54  *Display Report;
+
+
+COMPILATION TIME     =        0.018 SECONDS      3 MB  51.2.1 5fb43f63 DEX-DEG
+GAMS 51.2.1  5fb43f63 Oct 13, 2025          DEX-DEG x86 64bit/macOS - 11/27/25 17:24:30 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE Auction Using LP From line 54
+
+
+---- CostObj  =E=  Objective
+
+CostObj..  - 20*x(PlantA) - 80*x(PlantB) + z =E= 0 ; (LHS = 0)
+     
+
+---- BalEq  =E=  Supply Demand Balance
+
+BalEq..  x(PlantA) + x(PlantB) =E= 100 ; (LHS = 0, INFES = 100 ****)
+     
+
+---- CapLim  =L=  Capacity Limit
+
+CapLim(PlantA)..  x(PlantA) =L= 50 ; (LHS = 0)
+     
+CapLim(PlantB)..  x(PlantB) =L= 100 ; (LHS = 0)
+     
+GAMS 51.2.1  5fb43f63 Oct 13, 2025          DEX-DEG x86 64bit/macOS - 11/27/25 17:24:30 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE Auction Using LP From line 54
+
+
+---- x  
+
+x(PlantA)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -20       CostObj
+        1       BalEq
+        1       CapLim(PlantA)
+
+x(PlantB)
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+      -80       CostObj
+        1       BalEq
+        1       CapLim(PlantB)
+
+
+---- z  
+
+z
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       CostObj
+
+GAMS 51.2.1  5fb43f63 Oct 13, 2025          DEX-DEG x86 64bit/macOS - 11/27/25 17:24:30 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE Auction Using LP From line 54
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 5.000E+01, 1.000E+02] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.000E+00, 8.000E+01]
+
+GAMS 51.2.1  5fb43f63 Oct 13, 2025          DEX-DEG x86 64bit/macOS - 11/27/25 17:24:30 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE Auction Using LP From line 54
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           3     SINGLE EQUATIONS            4
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            3
+NON ZERO ELEMENTS             7
+
+
+GENERATION TIME      =        0.368 SECONDS      4 MB  51.2.1 5fb43f63 DEX-DEG
+GAMS 51.2.1  5fb43f63 Oct 13, 2025          DEX-DEG x86 64bit/macOS - 11/27/25 17:24:30 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE Auction Using LP From line 54
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   Auction             OBJECTIVE  z
+     TYPE    LP                  DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  54
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+**** OBJECTIVE VALUE             5000.0000
+
+ RESOURCE USAGE, LIMIT          0.003 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+*** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+
+--- LP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.00 ticks)
+
+
+Optimal solution found
+Objective:         5000.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU CostObj             .              .              .             1.0000      
+---- EQU BalEq            100.0000       100.0000       100.0000        80.0000      
+
+  CostObj  Objective
+  BalEq  Supply Demand Balance
+
+---- EQU CapLim  Capacity Limit
+
+              LOWER          LEVEL          UPPER         MARGINAL
+
+PlantA        -INF           50.0000        50.0000       -60.0000      
+PlantB        -INF           50.0000       100.0000          .          
+
+---- VAR x  
+
+              LOWER          LEVEL          UPPER         MARGINAL
+
+PlantA          .            50.0000        +INF             .          
+PlantB          .            50.0000        +INF             .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR z                 -INF         5000.0000        +INF             .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        1.413 SECONDS      4 MB  51.2.1 5fb43f63 DEX-DEG
+
+
+USER: GAMS Demo, for EULA and demo limitations see   G250826+0003Cc-GEN
+      https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+
+
+**** FILE SUMMARY
+
+Input      /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+Output     /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.lst
