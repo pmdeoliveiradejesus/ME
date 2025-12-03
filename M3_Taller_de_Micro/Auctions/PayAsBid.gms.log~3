@@ -1,0 +1,87 @@
+
+--- Job PayAsBid.gms Start 11/27/25 17:22:41 51.2.1 5fb43f63 DEX-DEG x86 64bit/macOS
+--- Applying:
+    /Library/Frameworks/GAMS.framework/Versions/51/Resources/gmsprmun.txt
+--- GAMS Parameters defined
+    Input "/Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms"
+    PageSize 0
+    ScrDir "/Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/225a/"
+    SysDir /Library/Frameworks/GAMS.framework/Versions/51/Resources/
+    LogOption 3
+    AppendLog 1
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: GAMS Demo, for EULA and demo limitations see   G250826+0003Cc-GEN
+          https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+          /Users/pm.deoliveiradejes/Library/Application Support/GAMS/gamslice.txt
+          v:2                                                              
+          Demo license for demonstration and instructional purposes only
+System information: 4 physical cores and 16 Gb physical memory detected
+GAMS 51.2.1   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- PayAsBid.gms(22) 3 Mb 3 Errors
+*** Error 195 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Symbol redefined with a different type
+*** Error 195 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Symbol redefined with a different type
+*** Error 195 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Symbol redefined with a different type
+--- PayAsBid.gms(24) 3 Mb 6 Errors
+*** Error 195 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Symbol redefined with a different type
+*** Error  96 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Blank needed between identifier and text
+      (-or- illegal character in identifier)
+      (-or- check for missing ';' on previous line)
+*** Error 195 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Symbol redefined with a different type
+--- PayAsBid.gms(25) 3 Mb 11 Errors
+*** Error 143 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    A suffix is missing
+*** Error  81 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    A '=' expected for assignment statements. Alternative
+       assignment operators are '$=' and ':='.
+*** Error 143 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    A suffix is missing
+*** Error 141 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+*** Error 409 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Unrecognizable item - skip to find a new statement
+      looking for a ';' or a key word to get started again
+--- PayAsBid.gms(26) 3 Mb 15 Errors
+*** Error 143 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    A suffix is missing
+*** Error  81 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    A '=' expected for assignment statements. Alternative
+       assignment operators are '$=' and ':='.
+*** Error 143 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    A suffix is missing
+*** Error 409 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Unrecognizable item - skip to find a new statement
+      looking for a ';' or a key word to get started again
+--- PayAsBid.gms(28) 3 Mb 16 Errors
+*** Error 233 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Empty model list
+      no legal data between / / or 'all' without any equations
+--- PayAsBid.gms(39) 3 Mb 18 Errors
+*** Error 257 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Solve statement not checked because of previous errors
+*** Error 409 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Unrecognizable item - skip to find a new statement
+      looking for a ';' or a key word to get started again
+--- PayAsBid.gms(46) 3 Mb 19 Errors
+*** Error 409 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Unrecognizable item - skip to find a new statement
+      looking for a ';' or a key word to get started again
+--- PayAsBid.gms(49) 3 Mb 20 Errors
+*** Error 257 in /Users/pm.deoliveiradejes/Dropbox (Personal)/Curso Operador Honduras/ME/M4_Subastas_Energia/PayAsBid.gms
+    Solve statement not checked because of previous errors
+--- PayAsBid.gms(55) 3 Mb 20 Errors
+*** Status: Compilation error(s)
+--- Job PayAsBid.gms Stop 11/27/25 17:22:41 elapsed 0:00:00.011
