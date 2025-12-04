@@ -1,0 +1,16 @@
+B 3 C o m p i l a t i o n
+B 65 Equation Listing    SOLVE Auction Using LP From line 54
+D 68 CostObj
+D 73 BalEq
+D 78 CapLim
+B 86 Column Listing      SOLVE Auction Using LP From line 54
+E 89 x
+E 104 z
+B 112 Range Statistics    SOLVE Auction Using LP From line 54
+B 123 Model Statistics    SOLVE Auction Using LP From line 54
+B 136 Solution Report     SOLVE Auction Using LP From line 54
+F 169 CostObj
+F 170 BalEq
+F 175 CapLim
+G 182 x
+G 191 z
